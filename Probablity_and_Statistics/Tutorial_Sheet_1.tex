@@ -1,0 +1,396 @@
+\documentclass{article}
+
+% Packages
+\usepackage{amsmath} % For math formatting
+\usepackage{amssymb} % For math symbols
+\usepackage{graphicx} % For including images
+\usepackage{geometry} % For page layout
+\geometry{a4paper, margin=1in}
+
+% Title and Author
+\title{Tutorial Sheet 1}
+\author{dtu1141b}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+This document contains the solutions to the problems of Tutorial Sheet 1 of Probability and Statistics.
+
+\section*{Problem 1}
+\subsection*{Question}
+A college library has five copies of a certain text on reserve. Two copies (1 and 2) are first printings, and the other three (3, 4, and 5) are second printings. A student examines these books in random order, stopping only when a second printing has been selected. One possible outcome is 5, and another is 213.
+
+\begin{enumerate}
+    \item[a)] List the outcomes in $\mathcal{S}$.
+    \item[b)] Let $A$ denote the event that exactly one book must be examined. What outcomes are in $A$?
+    \item[c)] Let $B$ be the event that book 5 is the one selected. What outcomes are in $B$?
+    \item[d)] Let $C$ be the event that book 1 is not examined. What outcomes are in $C$?
+\end{enumerate}
+
+\subsection*{Solution}
+
+We are given a set of five books, where two are first printings (1 and 2) and three are second printings (3, 4, and 5). The student examines these books in random order, stopping when a second printing is selected. We need to list the possible outcomes and analyze specific events.
+
+\subsection*{(a) List the outcomes in $\mathcal{S}$}
+The set $\mathcal{S}$ includes all possible sequences of book selections that end with a second printing. The sequences are:
+\[
+\mathcal{S} = \{3, 13, 23, 123, 213, 4, 14, 24, 124, 214, 5, 15, 25, 125, 215\}
+\]
+These sequences represent all possible ways the student could select books, ending with a second printing.
+
+\subsection*{(b) Event $A$: Exactly one book must be examined}
+The event $A$ includes outcomes where the student examines exactly one book, which must be a second printing. The outcomes are:
+\[
+A = \{3, 4, 5\}
+\]
+These are the only sequences where the selection stops after one book, which is a second printing.
+
+\subsection*{(c) Event $B$: Book 5 is the one selected}
+The event $B$ includes outcomes where book 5 is the selected second printing. The outcomes are:
+\[
+B = \{5, 15, 25, 125, 215\}
+\]
+These sequences show all possible ways book 5 could be the second printing selected.
+
+\subsection*{(d) Event $C$: Book 1 is not examined}
+The event $C$ includes outcomes where book 1 is not examined at all. The outcomes are:
+\[
+C = \{3, 23, 4, 24, 5, 25\}
+\]
+These sequences represent all possible selections that do not include book 1.
+
+\section*{Problem 2}
+\subsection*{Question}
+The computers of six faculty members in a certain department are to be replaced. Two of the faculty members have selected laptop machines and the other four have chosen desktop machines. Suppose that only two of the setups can be done on a particular day, and the two computers to be set up are randomly selected from the six (implying 15 equally likely outcomes; if the computers are numbered 1, 2, \ldots, 6, then one outcome consists of computers 1 and 2, another consists of computers 1 and 3, and so on).
+
+\begin{enumerate}
+    \item[(a)] What is the probability that both selected setups are for laptop computers?
+    \item[(b)] What is the probability that both selected setups are desktop machines?
+    \item[(c)] What is the probability that at least one selected setup is for a desktop computer?
+    \item[(d)] What is the probability that at least one computer of each type is chosen for setup?
+\end{enumerate}
+
+\subsection*{Solution}
+
+We are given six faculty members' computers to be replaced, with two selecting laptops and four selecting desktops. We need to calculate various probabilities based on the selection of two setups from these six.
+
+\subsection*{(a) Probability that both selected setups are for laptop computers}
+There is only one way to select both laptops from the two available. The total number of ways to select any two computers from the six is given by the combination formula $\binom{6}{2}$.
+
+\[
+P(A) = \frac{\binom{2}{2}}{\binom{6}{2}} = \frac{1}{15}
+\]
+
+\subsection*{(b) Probability that both selected setups are desktop machines}
+There are $\binom{4}{2}$ ways to select both desktops from the four available. The total number of ways to select any two computers from the six is still $\binom{6}{2}$.
+
+\[
+P(B) = \frac{\binom{4}{2}}{\binom{6}{2}} = \frac{2}{5}
+\]
+
+\subsection*{(c) Probability that at least one selected setup is for a desktop computer}
+To find this probability, we consider the complement of selecting no desktops (i.e., selecting both laptops). The number of ways to select at least one desktop is the total ways minus the ways to select two laptops.
+
+\[
+P(C) = 1 - P(A) = 1 - \frac{1}{15} = \frac{14}{15}
+\]
+
+\subsection*{(d) Probability that at least one computer of each type is chosen for setup}
+This scenario involves selecting one laptop and one desktop. The number of ways to do this is $\binom{4}{1} \times \binom{2}{1}$, since we choose one desktop from four and one laptop from two.
+
+\[
+P(D) = \frac{\binom{4}{1} \times \binom{2}{1}}{\binom{6}{2}} = \frac{8}{15}
+\]
+
+\section*{Problem 3}
+\subsection*{Question}
+A starting lineup in basketball consists of two guards, two forwards, and a center.
+
+\subsection*{(a)}
+A certain college team has on its roster three centers, four guards, four forwards, and one individual (X) who can play either guard or forward. How many different starting lineups can be created? [Hint: Consider lineups without X, then lineups with X as guard, then lineups with X as forward.]
+
+\subsection*{(b)}
+Now suppose the roster has 5 guards, 5 forwards, 3 centers, and 2 'swing players' (X and Y) who can play either guard or forward. If 5 of the 15 players are randomly selected, what is the probability that they constitute a legitimate starting lineup?
+
+\subsection*{Solution}
+
+\subsection*{(a) Lineup Formation with One Versatile Player}
+A college basketball team has three centers, four guards, four forwards, and one player (X) who can play as either a guard or a forward. We need to determine the number of different starting lineups possible.
+
+\textbf{Solution:}
+We consider three scenarios based on the hint provided:
+\begin{itemize}
+    \item \textbf{Without X:} We select 2 guards from 4, 2 forwards from 4, and 1 center from 3.
+    \[
+    \binom{3}{1} \times \binom{4}{2} \times \binom{4}{2} = 108
+    \]
+    \item \textbf{X as a Guard:} We select X as one of the guards, 1 more guard from 4, 2 forwards from 4, and 1 center from 3.
+    \[
+    \binom{3}{1} \times \binom{4}{1} \times \binom{4}{2} = 72
+    \]
+    \item \textbf{X as a Forward:} We select 2 guards from 4, X as one of the forwards, and 1 more forward from 4, with 1 center from 3.
+    \[
+    \binom{3}{1} \times \binom{4}{2} \times \binom{4}{1} = 72
+    \]
+\end{itemize}
+
+Adding these scenarios together gives us the total number of different starting lineups:
+\[
+108 + 72 + 72 = 252
+\]
+
+\subsection*{(b) Lineup Formation with Two Versatile Players}
+Now, suppose the roster includes 5 guards, 5 forwards, 3 centers, and 2 'swing players' (X and Y) who can play as either guard or forward. We need to calculate the probability that a randomly selected group of 5 players forms a legitimate starting lineup.
+
+\textbf{Solution:}
+We analyze the selection process by considering different cases:
+\begin{itemize}
+    \item \textbf{No Swing Players:} We select 2 guards from 5, 2 forwards from 5, and 1 center from 3.
+    \[
+    \binom{5}{2} \times \binom{5}{2} \times \binom{3}{1} = 300
+    \]
+    \item \textbf{X not in the lineup and Y is in the lineup:} We select 2 guards from the remaining 5 (excluding X), 2 forwards from 5, and 1 center from 3 and also Y is included as a swing player.
+    \[
+    \binom{5}{2} \times \binom{5}{1} \times \binom{3}{1} + \binom{5}{1} \times \binom{5}{2} \times \binom{3}{1} = 300
+    \]
+    \item \textbf{Y not in the lineup and X is in the lineup:} Similar to the case above, but excluding Y instead of X.
+    \[
+    \binom{5}{2} \times \binom{5}{1} \times \binom{3}{1} + \binom{5}{1} \times \binom{5}{2} \times \binom{3}{1} = 300
+    \]
+    \item \textbf{Both X and Y in the lineup:} We select 2 guards from 5, 1 forward from the remaining 4 (excluding one for X or Y), and 1 center from 3.
+    \[
+    \binom{5}{2} \times \binom{3}{1} + \binom{5}{2} \times \binom{3}{1} + \binom{5}{1} \times \binom{5}{1} \times \binom{3}{1} = 135
+    \]
+\end{itemize}
+
+Summing these cases gives us the total number of valid combinations:
+\[
+300 + 300 + 300 + 135 = 1035
+\]
+
+Thus, the probability of forming a valid team is:
+\[
+P(\text{Valid Team}) = \frac{1035}{\binom{15}{5}} = \frac{1035}{3003} \approx 0.348
+\]
+% Add more sections as needed
+\section*{Problem 4}
+\subsection*{Question}
+A friend who lives in Los Angeles makes frequent consulting trips to Washington, D.C. She travels on airline \#1 50\% of the time, airline \#2 30\% of the time, and airline \#3 the remaining 20\% of the time. The probabilities of flights being late into D.C. and late into L.A. for each airline are as follows:
+\begin{itemize}
+    \item Airline \#1: 30\% late into D.C., 10\% late into L.A.
+    \item Airline \#2: 25\% late into D.C., 20\% late into L.A.
+    \item Airline \#3: 40\% late into D.C., 25\% late into L.A.
+\end{itemize}
+
+If we learn that on a particular trip she arrived late at exactly one of the two destinations, what are the posterior probabilities of having flown on airlines \#1, \#2, and \#3? Assume that she uses the same airline to fly into L.A. \& D.C., and that the chance of a late arrival in L.A. is unaffected by what happens on the flight to D.C.
+
+\subsection*{Solution}
+Let:
+\begin{itemize}
+    \item $P(A_i)$ denote the probability of using airline $i$.
+    \item $P(D|A_i)$ denote the probability that flight $A_i$ is late at D.C.
+    \item $P(L|A_i)$ denote the probability that flight $A_i$ is late at L.A.
+    \item $P(E|A_i)$ denote the probability that flight $A_i$ is late at exactly one destination.
+\end{itemize}
+
+Using the law of total probability and the independence of late arrivals at L.A. and D.C., we have:
+\[
+P(E|A_i) = P((D \cap \overline{L}) \cup (\overline{D} \cap L) | A_i) = P(D|A_i)P(\overline{L}|A_i) + P(\overline{D}|A_i)P(L|A_i)
+\]
+\[
+P(\overline{D}|A_i) = 1 - P(D|A_i), \quad P(\overline{L}|A_i) = 1 - P(L|A_i)
+\]
+
+Thus,
+\[
+P(E|A_i) = P(D|A_i) + P(L|A_i) - 2P(D|A_i)P(L|A_i)
+\]
+
+Given the probabilities:
+\begin{itemize}
+    \item For airline \#1: $P(D|A_1) = 0.3$, $P(L|A_1) = 0.1$
+    \item For airline \#2: $P(D|A_2) = 0.25$, $P(L|A_2) = 0.2$
+    \item For airline \#3: $P(D|A_3) = 0.4$, $P(L|A_3) = 0.25$
+\end{itemize}
+
+We calculate $P(E|A_i)$ for each airline:
+\[
+P(E|A_1) = 0.3 + 0.1 - 2 \times 0.3 \times 0.1 = 0.34
+\]
+\[
+P(E|A_2) = 0.25 + 0.2 - 2 \times 0.25 \times 0.2 = 0.35
+\]
+\[
+P(E|A_3) = 0.4 + 0.25 - 2 \times 0.25 \times 0.4 = 0.45
+\]
+
+The prior probabilities of using each airline are:
+\[
+P(A_1) = 0.5, \quad P(A_2) = 0.3, \quad P(A_3) = 0.2
+\]
+
+Using Bayes' theorem, the posterior probabilities are:
+\[
+P(A_i|E) = \frac{P(E|A_i)P(A_i)}{\sum_{j=1}^{3} P(E|A_j)P(A_j)}
+\]
+
+Calculating the denominator:
+\[
+\sum_{j=1}^{3} P(E|A_j)P(A_j) = 0.34 \times 0.5 + 0.35 \times 0.3 + 0.45 \times 0.2 = 0.17 + 0.105 + 0.09 = 0.365
+\]
+
+Thus, the posterior probabilities are:
+\[
+P(A_1|E) = \frac{0.34 \times 0.5}{0.365} = \frac{0.17}{0.365} \approx 0.466
+\]
+\[
+P(A_2|E) = \frac{0.35 \times 0.3}{0.365} = \frac{0.105}{0.365} \approx 0.288
+\]
+\[
+P(A_3|E) = \frac{0.45 \times 0.2}{0.365} = \frac{0.09}{0.365} \approx 0.246
+\]
+\section*{Problem 5}
+\subsection*{Question}
+A quality control inspector is inspecting newly produced items for faults. The inspector searches an item for faults in a series of independent fixations, each of a fixed duration. Given that a flaw is actually present, let $p$ denote the probability that the flaw is detected during any one fixation.
+
+\begin{enumerate}
+    \item[(a)] Assuming that an item has a flaw, what is the probability that it is detected by the end of the second fixation (once a flaw has been detected, the sequence of fixations terminates)?
+    \item[(b)] Give an expression for the probability that a flaw will be detected by the end of the $n$th fixation.
+    \item[(c)] If when a flaw has not been detected in three fixations, the item is passed, what is the probability that a flawed item will pass inspection?
+    \item[(d)] Suppose 10\% of all items contain a flaw [$P(\text{randomly chosen item is flawed}) = 0.1$]. With the assumption of part (c), what is the probability that a randomly chosen item will pass inspection (it will automatically pass if it is not flawed, but could also pass if it is flawed)?
+    \item[(e)] Given that an item has passed inspection (no flaws in three fixations), what is the probability that it is actually flawed? Calculate for $p = 0.5$.
+\end{enumerate}
+\subsection*{Solution}
+We are given a scenario where a quality control inspector checks items for flaws with a probability $p$ of detecting a flaw in any single fixation. We need to calculate various probabilities related to this process.
+
+\subsection*{(a) Probability of being detected}
+Let $P(A)$ denote the probability of being detected:
+\[
+P(B) = P(A) + P(A')P(A) = 2p -p^2
+\]
+
+\subsection*{(b) Probability of not being detected till the nth fixation}
+Let $P(C)$ denote the probability of not being detected till the nth fixation:
+\[
+P(C) = (P(A'))^n = (1-p)^n
+\]
+\[
+P(C') = 1 - (P(A'))^n = 1 - (1-p)^n
+\]
+
+\subsection*{(c) Probability of not being detected in three fixations}
+\[
+P(C' \cap 3) = (P(A'))^3 = (1-p)^3
+\]
+
+\subsection*{(d) Probability of an item passing inspection}
+Let $P(F)$ denote the probability of an item being flawed, $P(P|F)$ denote the probability of an item passing inspection with a flaw, and $P(P|F')$ denote the probability of an item passing inspection without a flaw.
+\[
+P(P) = P(F)P(P|F) + P(F')P(P|F')
+\]
+where $P(F) = 0.1$, $P(F') = 0.9$, $P(P|F') = 1$, and $P(P|F) = (1-p)^3$.
+
+Thus,
+\[
+P(P) = \frac{(1-p)^3 + 9}{10}
+\]
+
+\subsection*{(e) Probability of a flawed item passing inspection}
+\[
+P(F|P) = \frac{P(F)P(P|F)}{P(F)P(P|F) + P(F')P(P|F')} = \frac{(1-p)^3}{(1-p)^3 + 9}
+\]
+
+For $p = 0.5$:
+\[
+P(F|P) = \frac{(1-0.5)^3}{(1-0.5)^3 + 9} = \frac{1/8}{1/8 + 9} = \frac{1}{73}
+\]
+\section*{Problem 6}
+\subsection*{Question}
+One satellite is scheduled to be launched from Cape Canaveral in Florida, and another launch is scheduled for Vandenberg Air Force Base in California. Let $A$ denote the event that the Vandenberg launch goes off on schedule, and let $B$ represent the event that the Cape Canaveral launch goes off on schedule. If $A$ and $B$ are independent events with $P(A) > P(B)$, $P(A \cup B) = 0.626$, and $P(A \cap B) = 0.144$, determine the values of $P(A)$ and $P(B)$
+\subsection*{Solution}
+
+We start with the given information:
+\[
+P(A) > P(B), \quad P(A \cup B) = 0.626, \quad P(A \cap B) = 0.144
+\]
+
+Since $A$ and $B$ are independent events, we have:
+\[
+P(A \cap B) = P(A)P(B)
+\]
+
+Given $P(A \cap B) = 0.144$, we can write:
+\[
+P(A)P(B) = 0.144 \quad \text{(1)}
+\]
+
+We also know that:
+\[
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+\]
+
+Substituting the given values:
+\[
+0.626 = P(A) + P(B) - 0.144
+\]
+\[
+P(A) + P(B) = 0.77 \quad \text{(2)}
+\]
+
+We now have a system of equations:
+\[
+\begin{cases}
+P(A)P(B) = 0.144 \\
+P(A) + P(B) = 0.77
+\end{cases}
+\]
+
+Solving this system along with the condition $P(A) > P(B)$, we get:
+\[
+P(A) = 0.45, \quad P(B) = 0.32
+\]
+\section*{Problem 7}
+\subsection*{Question}
+There are $k$ bags, each containing $m$ black and $n$ white marbles. A marble is randomly chosen from the first bag and transferred to the second bag; then a marble is randomly chosen from the second bag and transferred to the third bag, and so on until a marble is randomly chosen from the $k$th bag. Find the probability that the marble chosen from the $k$th bag is black.
+\subsection*{Solution}
+Let $P(A_i)$ denote the probability that a black marble is chosen from the $i$th bag.
+
+\subsection*{Base Case}
+For the first bag, the probability of choosing a black marble is:
+\[
+P(A_1) = \frac{m}{m+n}
+\]
+
+\subsection*{Inductive Step}
+Assume that for some $i \geq 1$, $P(A_i) = \frac{m}{m+n}$. We need to show that $P(A_{i+1}) = \frac{m}{m+n}$.
+
+\[
+P(A_{i+1}) = P(A_{i+1} \mid A_i)P(A_i) + P(A_{i+1} \mid \overline{A_i})P(\overline{A_i})
+\]
+
+Given the independence of the events and the uniform distribution of marbles:
+\[
+P(A_{i+1} \mid A_i) = \frac{m+1}{m+n+1}, \quad P(A_{i+1} \mid \overline{A_i}) = \frac{m}{m+n+1}
+\]
+
+\[
+P(A_i) = \frac{m}{m+n}, \quad P(\overline{A_i}) = 1 - P(A_i) = \frac{n}{m+n}
+\]
+
+Substituting these into the equation for $P(A_{i+1})$:
+\[
+P(A_{i+1}) = \left(\frac{m+1}{m+n+1}\right)\left(\frac{m}{m+n}\right) + \left(1 - \frac{m}{m+n}\right)\left(\frac{m}{m+n+1}\right)
+\]
+
+Simplifying:
+\[
+P(A_{i+1}) = \frac{m(m+1)}{(m+n)(m+n+1)} + \frac{mn}{(m+n)(m+n+1)} = \frac{m(m+1) + mn}{(m+n)(m+n+1)} = \frac{m(m+n+1)}{(m+n)(m+n+1)} = \frac{m}{m+n}
+\]
+
+Thus, by induction, $P(A_k) = \frac{m}{m+n}$ for all $k \in \mathbb{N}$.
+
+
+\end{document}
