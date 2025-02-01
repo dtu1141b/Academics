@@ -1,0 +1,439 @@
+\documentclass{article}
+
+% Packages
+\usepackage{amsmath} % For math formatting
+\usepackage{amssymb} % For math symbols
+\usepackage{graphicx} % For including images
+\usepackage{geometry} % For page layout
+\geometry{a4paper, margin=1in}
+
+% Title and Author
+\title{Tutorial Sheet 2}
+\author{dtu1141b}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+This document contains the solutions to the problems of Tutorial Sheet 2 of Probability and Statistics.
+
+\section*{Problem 1}
+\subsection*{Question}
+Airlines sometimes overbook flights. Suppose that for a plane with 50 seats, 55 passengers have tickets. Define the random variable $Y$ as the number of ticketed passengers who actually show up for the flight. The probability mass function of $Y$ appears as follows:
+
+\[
+\begin{array}{c|c}
+y & p(y) \\
+\hline
+45 & 0.05 \\
+46 & 0.10 \\
+47 & 0.12 \\
+48 & 0.14 \\
+49 & 0.25 \\
+50 & 0.17 \\
+51 & 0.06 \\
+52 & 0.05 \\
+53 & 0.03 \\
+54 & 0.02 \\
+55 & 0.01 \\
+\end{array}
+\]
+
+\begin{enumerate}
+    \item[(a)] What is the probability that the flight will accommodate all ticketed passengers who show up?
+    \item[(b)] What is the probability that not all ticketed passengers who show up can be accommodated?
+    \item[(c)] If you are the first person on the standby list (which means you will be the first one to get on the plane if there are any seats available after all ticketed passengers have been accommodated), what is the probability that you will be able to take the flight? What is this probability if you are the third person on the standby list?
+\end{enumerate}
+\section*{Solution}
+
+\subsection*{(a) Probability that the flight will accommodate all ticketed passengers}
+The flight will accommodate all ticketed passengers if $Y \leq 50$. Thus, we sum the probabilities for $Y = 45, 46, \ldots, 50$:
+\[
+P(Y \leq 50) = \sum_{y=45}^{50} p(y) = 0.05 + 0.10 + 0.12 + 0.14 + 0.25 + 0.17 = 0.83
+\]
+
+\subsection*{(b) Probability that not all ticketed passengers can be accommodated}
+The probability that not all ticketed passengers can be accommodated is the complement of the probability that all can be accommodated:
+\[
+P(Y > 50) = 1 - P(Y \leq 50) = 1 - 0.83 = 0.17
+\]
+
+\subsection*{(c) Probability for standby passengers}
+\begin{itemize}
+    \item \textbf{First person on the standby list:}
+    The first person on the standby list will get a seat if $Y \leq 49$. Thus:
+    \[
+    P(Y \leq 49) = \sum_{y=45}^{49} p(y) = 0.05 + 0.10 + 0.12 + 0.14 + 0.25  = 0.66
+    \]
+    \item \textbf{Third person on the standby list:}
+    The third person on the standby list will get a seat if $Y \leq 47$. Thus:
+    \[
+    P(Y \leq 47) = \sum_{y=45}^{47} p(y) = 0.05 + 0.10 + 0.12 = 0.27
+    \]
+\end{itemize}
+
+\section*{Problem 2}
+\subsection*{Question}
+An insurance company offers its policyholders a number of different premium payment options. For a randomly selected policyholder, let \(X\) the number of months between successive payments. The cdf of \(X\) is as follows:
+
+\[
+F(x) = 
+\begin{cases} 
+0, & \text{for } x < 1 \\
+0.30, & \text{for } 1 \leq x < 3 \\
+0.4, & \text{for } 3 \leq x < 4 \\
+0.45, & \text{for } 4 \leq x < 6 \\
+0.6, & \text{for } 6 \leq x < 12 \\
+1, & \text{for } 12 \leq x 
+\end{cases}
+\]
+
+\subsection*{(a) What is the pmf of \(X\).}
+
+\subsection*{(b) Using just the cdf, compute \(P(3 \leq X \leq 6)\) and \(P(4 \leq X)\).}
+
+\subsection*{Solution}
+
+\subsection*{(a) PMF of \(X\)}
+\[
+p(x) = 
+\begin{cases} 
+0.30, & x = 1 \\
+0.10, & x = 3 \\
+0.05, & x = 4 \\
+0.15, & x = 6 \\
+0.40, & x = 12 \\
+0, & \text{otherwise}
+\end{cases}
+\]
+
+\subsection*{(b) Probabilities using CDF}
+\[
+P(3 \leq X \leq 6) = F(6^+) - F(3^-) = 0.45 - 0.3 = 0.15
+\]
+\[
+P(4 \leq X) = 1 - F(4^+) = 1 - 0.45 = 0.55
+\]
+\section*{Problem 3}
+\subsection*{Question}A certain brand of upright freezer is available in three different rated capacities: 16 L, 18 L, and 20 L. Let \(X\) be the rated capacity of a freezer of this brand sold at a certain store. Suppose that \(X\) has pmf:
+
+\[
+\begin{array}{cccc}
+x & 16 & 18 & 20 \\
+p(x) & 0.2 & 0.5 & 0.3 \\
+\end{array}
+\]
+
+\begin{enumerate}
+    \item Compute \(E(X)\), \(E(X^2)\), and \(V(X)\).
+    \item If the price of a freezer having capacity \(X\) is \(70X - 650\), what is the expected price paid by the next customer to buy a freezer?
+    \item What is the variance of the price paid by the next customer?
+    \item Suppose that although the rated capacity of a freezer is \(X\), the actual capacity is \(h(X) = X - 0.008X^2\). What is the expected actual capacity of the freezer purchased by the next customer?
+\end{enumerate}
+
+\subsection*{Solution}
+Given the pmf of the rated capacity \(X\) of a freezer:
+\[
+\begin{array}{c|ccc}
+x & 16 & 18 & 20 \\
+\hline
+p(x) & 0.2 & 0.5 & 0.3 \\
+\end{array}
+\]
+
+\subsection*{(a) Compute \(E(X)\), \(E(X^2)\), and \(V(X)\).}
+
+The expected value \(E(X)\) is calculated as:
+\[
+E(X) = \sum x \cdot p(x) = 16 \cdot 0.2 + 18 \cdot 0.5 + 20 \cdot 0.3 = 3.2 + 9 + 6 = 18.2
+\]
+
+The expected value of \(X^2\) is:
+\[
+E(X^2) = \sum x^2 \cdot p(x) = 16^2 \cdot 0.2 + 18^2 \cdot 0.5 + 20^2 \cdot 0.3 = 51.2 + 162 + 120 = 333.2
+\]
+
+The variance \(V(X)\) is:
+\[
+V(X) = E(X^2) - [E(X)]^2 = 333.2 - 18.2^2 = 333.2 - 331.24 = 1.96
+\]
+
+\subsection*{(b) Expected price paid by the next customer.}
+
+The price function is \(P(X) = 70X - 650\). The expected price \(E[P(X)]\) is:
+\[
+E[P(X)] = E[70X - 650] = 70E(X) - 650 = 70 \cdot 18.2 - 650 = 1274 - 650 = 624
+\]
+
+\subsection*{(c) Variance of the price paid by the next customer.}
+
+The variance of the price \(V[P(X)]\) is:
+\[
+V[P(X)] = V[70X - 650] = 70^2 V(X) = 4900 \cdot 1.96 = 9604
+\]
+
+\subsection*{(d) Expected actual capacity of the freezer.}
+
+The actual capacity function is \(h(X) = X - 0.008X^2\). The expected actual capacity \(E[h(X)]\) is:
+\[
+E[h(X)] = E[X - 0.008X^2] = E(X) - 0.008E(X^2) = 18.2 - 0.008 \cdot 333.2 = 18.2 - 2.6656 = 15.5344
+\]
+
+% Add more sections as needed
+\section*{Problem 4}
+\subsection*{Question}
+A small market orders copies of a certain magazine for its magazine rack each week. Let \(X\) be the demand for the magazine, with pmf:
+\[
+\begin{array}{c|cccccc}
+x & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+p(x) & \frac{1}{15} & \frac{2}{15} & \frac{3}{15} & \frac{4}{15} & \frac{3}{15} & \frac{2}{15} \\
+\end{array}
+\]
+
+Suppose the store owner actually pays \$2.00 for each copy of the magazine and the price to customers is \$4.00. If magazines left at the end of the week have no salvage value, is it better to order three or four copies of the magazine? [Hint: For both three and four copies ordered, express net revenue as a function of demand \(X\), and then compute the expected revenue.]
+
+
+\subsection*{Solution}
+Given the pmf of the demand \(X\) for the magazine:
+\[
+\begin{array}{c|cccccc}
+x & 1 & 2 & 3 & 4 & 5 & 6 \\
+\hline
+p(x) & \frac{1}{15} & \frac{2}{15} & \frac{3}{15} & \frac{4}{15} & \frac{3}{15} & \frac{2}{15} \\
+\end{array}
+\]
+
+The cost per magazine is \$2.00 and the selling price is \$4.00. We need to compare the expected net revenue for ordering 3 and 4 magazines.
+
+\subsection*{Net Revenue for Ordering 3 Magazines}
+
+The net revenue \(R_3\) when 3 magazines are ordered can be expressed as:
+\[
+R_3(X) = 
+\begin{cases} 
+4X - 6 & \text{if } X \leq 3 \\
+6 & \text{if } X > 3 
+\end{cases}
+\]
+
+The expected net revenue \(E[R_3]\) is:
+\[
+E[R_3] = \sum_{x=1}^{6} R_3(x) \cdot p(x) = (4 \cdot 1 - 6) \cdot \frac{1}{15} + (4 \cdot 2 - 6) \cdot \frac{2}{15} + (4 \cdot 3 - 6) \cdot \frac{3}{15} + 6 \cdot \left(\frac{4}{15} + \frac{3}{15} + \frac{2}{15}\right)
+\]
+\[
+E[R_3] = -2 \cdot \frac{1}{15} + 2 \cdot \frac{2}{15} + 6 \cdot \frac{3}{15} + 6 \cdot \frac{9}{15} = -\frac{2}{15} + \frac{4}{15} + \frac{18}{15} + \frac{54}{15} = \frac{74}{15}
+\]
+
+\subsection*{Net Revenue for Ordering 4 Magazines}
+
+The net revenue \(R_4\) when 4 magazines are ordered can be expressed as:
+\[
+R_4(X) = 
+\begin{cases} 
+4X - 8 & \text{if } X \leq 4 \\
+8 & \text{if } X > 4 
+\end{cases}
+\]
+
+The expected net revenue \(E[R_4]\) is:
+\[
+E[R_4] = \sum_{x=1}^{6} R_4(x) \cdot p(x) = (4 \cdot 1 - 8) \cdot \frac{1}{15} + (4 \cdot 2 - 8) \cdot \frac{2}{15} + (4 \cdot 3 - 8) \cdot \frac{3}{15} + (4 \cdot 4 - 8) \cdot \frac{4}{15} + 8 \cdot \left(\frac{3}{15} + \frac{2}{15}\right)
+\]
+\[
+E[R_4] = -4 \cdot \frac{1}{15} + 0 \cdot \frac{2}{15} + 4 \cdot \frac{3}{15} + 8 \cdot \frac{4}{15} + 8 \cdot \frac{5}{15} = -\frac{4}{15} + 0 + \frac{12}{15} + \frac{32}{15} + \frac{40}{15} = \frac{80}{15}
+\]
+
+\subsection*{Conclusion}
+
+Comparing the expected net revenues:
+\[
+E[R_3] = \frac{74}{15} \approx 4.93, \quad E[R_4] = \frac{80}{15} \approx 5.33
+\]
+
+It is better to order 4 magazines since \(E[R_4] > E[R_3]\).
+\section*{Problem 5}
+\subsection*{Question}
+Let \(X\) be the damage incurred (in dollars) in a certain type of accident during a given year. Possible \(X\) values are 0, 1000, 5000, and 10000, with probabilities 0.8, 0.1, 0.08, and 0.02, respectively. A particular company offers a \$500 deductible policy. If the company wishes its expected profit to be \$100, what premium amount should it charge?
+
+\subsection*{Solution}
+Let \(X\) be the damage incurred in a certain type of accident during a given year, with possible values and their probabilities as follows:
+\[
+\begin{array}{c|cccc}
+X & 0 & 1000 & 5000 & 10000 \\
+\hline
+P(X) & 0.8 & 0.1 & 0.08 & 0.02 \\
+\end{array}
+\]
+
+The company offers a \$500 deductible policy, meaning the policyholder will not receive any payment if the damage is less than or equal to \$500. The payment received by the policyholder for damages greater than \$500 will be \(X - 500\).
+
+The expected payment \(E[P]\) by the company can be calculated as:
+\[
+E[P] = \sum (X - 500) \cdot P(X) \text{ for } X > 500
+\]
+\[
+E[P] = (1000 - 500) \cdot 0.1 + (5000 - 500) \cdot 0.08 + (10000 - 500) \cdot 0.02
+\]
+\[
+E[P] = 500 \cdot 0.1 + 4500 \cdot 0.08 + 9500 \cdot 0.02
+\]
+\[
+E[P] = 50 + 360 + 190 = 600
+\]
+
+The company wishes its expected profit to be \$100. Let \(P\) be the premium charged. The expected profit \(E[\text{Profit}]\) is given by:
+\[
+E[\text{Profit}] = P - E[P]
+\]
+Setting \(E[\text{Profit}] = 100\), we solve for \(P\):
+\[
+100 = P - 600
+\]
+\[
+P = 100 + 600 = 700
+\]
+
+Therefore, the company should charge a premium of \$700 to achieve an expected profit of \$100.
+\section*{Problem 6}
+\subsection*{Question}
+Consider a population of 100 balls numbered 1 to 100. A sample of 10 balls is selected. For \(i = 1, \ldots, 100\), let \(E_i\) denote the event that the \(i\)-th ball is selected. Define the indicator random variable \(X_i\) as:
+\[
+X_i = 
+\begin{cases} 
+1 & \text{if the } i\text{-th ball is selected}, \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+
+\begin{enumerate}
+    \item Find the mean \(\mathbb{E}[X_i]\) of \(X_i\).
+    \item Find the variance \(\operatorname{Var}(X_i)\) of \(X_i\).
+\end{enumerate}
+\subsection*{Solution}
+
+
+The mean \(\mathbb{E}[X_i]\) is the probability that the \(i\)-th ball is selected. Since there are 10 balls selected out of 100, the probability of any specific ball being selected is:
+\[
+\mathbb{E}[X_i] = P(E_i) = \frac{10}{100} = 0.1
+\]
+
+The variance of an indicator random variable \(X_i\) is given by:
+\[
+\operatorname{Var}(X_i) = \mathbb{E}[X_i^2] - (\mathbb{E}[X_i])^2
+\]
+Since \(X_i\) is an indicator variable, \(X_i^2 = X_i\), so \(\mathbb{E}[X_i^2] = \mathbb{E}[X_i]\). Therefore:
+\[
+\operatorname{Var}(X_i) = \mathbb{E}[X_i] - (\mathbb{E}[X_i])^2 = 0.1 - (0.1)^2 = 0.1 - 0.01 = 0.09
+\]
+\section*{Extra Problem 1}
+\subsection*{Question}
+We have a box containing three one-rupee notes, one five-rupee note, and one ten-rupee note. If we randomly select two notes without replacement from the box and \(X\) represents the total amount of money we receive, then determine the probability mass function of \(X\).
+\subsection*{Solution}
+Given a box with three one-rupee notes, one five-rupee note, and one ten-rupee note, we randomly select two notes without replacement. Let \(X\) be the total amount of money received. We need to determine the pmf of \(X\).
+
+The possible values of \(X\) are the sums of the values of any two notes selected. These are: 2, 6, 11, and 15 rupees.
+
+\subsection*{Probability Mass Function (pmf) of \(X\)}
+
+\begin{itemize}
+    \item \(P(X = 2)\): Both notes are one-rupee notes.
+    \[
+    P(X = 2) = \frac{\binom{3}{2}}{\binom{5}{2}} = \frac{3}{10}
+    \]
+    \item \(P(X = 6)\): One one-rupee note and one five-rupee note.
+    \[
+    P(X = 6) = \frac{\binom{3}{1} \cdot \binom{1}{1}}{\binom{5}{2}} = \frac{3}{10}
+    \]
+    \item \(P(X = 11)\): One one-rupee note and one ten-rupee note.
+    \[
+    P(X = 11) = \frac{\binom{3}{1} \cdot \binom{1}{1}}{\binom{5}{2}} = \frac{3}{10}
+    \]
+    \item \(P(X = 15)\): One five-rupee note and one ten-rupee note.
+    \[
+    P(X = 15) = \frac{\binom{1}{1} \cdot \binom{1}{1}}{\binom{5}{2}} = \frac{1}{10}
+    \]
+\end{itemize}
+
+Thus, the pmf of \(X\) is:
+\[
+\begin{array}{c|cccc}
+X & 2 & 6 & 11 & 15 \\
+\hline
+P(X) & \frac{3}{10} & \frac{3}{10} & \frac{3}{10} & \frac{1}{10} \\
+\end{array}
+\]
+\section*{Extra Problem 2}
+\subsection*{Question}
+Let \( X \) be a discrete random variable that takes only three values, 0, 1, and 2, with non-zero probability. If the expected value of \( X \) is 1.3 and variance is 0.61, then find the cumulative distribution function (CDF) of \( X \).
+\subsection*{Solution}
+
+Let \(X\) be a discrete random variable that takes values 0, 1, and 2 with probabilities \(p_0\), \(p_1\), and \(p_2\) respectively. We are given:
+\[
+E(X) = 1.3 \quad \text{and} \quad \text{Var}(X) = 0.61
+\]
+
+The expected value \(E(X)\) is given by:
+\[
+E(X) = 0 \cdot p_0 + 1 \cdot p_1 + 2 \cdot p_2 = p_1 + 2p_2 = 1.3
+\]
+
+The variance \(\text{Var}(X)\) is given by:
+\[
+\text{Var}(X) = E(X^2) - [E(X)]^2
+\]
+\[
+E(X^2) = 0^2 \cdot p_0 + 1^2 \cdot p_1 + 2^2 \cdot p_2 = p_1 + 4p_2
+\]
+\[
+\text{Var}(X) = p_1 + 4p_2 - (1.3)^2 = p_1 + 4p_2 - 1.69 = 0.61
+\]
+
+We also know that the probabilities must sum to 1:
+\[
+p_0 + p_1 + p_2 = 1
+\]
+
+We now have a system of three equations:
+1. \(p_1 + 2p_2 = 1.3\)
+2. \(p_1 + 4p_2 - 1.69 = 0.61\)
+3. \(p_0 + p_1 + p_2 = 1\)
+
+Solving the first two equations for \(p_1\) and \(p_2\):
+\[
+p_1 + 4p_2 = 2.3 \quad \text{(from the second equation)}
+\]
+\[
+p_1 + 2p_2 = 1.3 \quad \text{(from the first equation)}
+\]
+Subtracting the first from the second:
+\[
+2p_2 = 1 \implies p_2 = 0.5
+\]
+Substituting \(p_2 = 0.5\) into \(p_1 + 2p_2 = 1.3\):
+\[
+p_1 + 1 = 1.3 \implies p_1 = 0.3
+\]
+Substituting \(p_1 = 0.3\) and \(p_2 = 0.5\) into \(p_0 + p_1 + p_2 = 1\):
+\[
+p_0 + 0.3 + 0.5 = 1 \implies p_0 = 0.2
+\]
+
+Thus, the probabilities are:
+\[
+p_0 = 0.2, \quad p_1 = 0.3, \quad p_2 = 0.5
+\]
+
+The cumulative distribution function (CDF) \(F(x)\) of \(X\) is:
+\[
+F(x) = 
+\begin{cases} 
+0 & \text{if } x < 0 \\
+0.2 & \text{if } 0 \leq x < 1 \\
+0.5 & \text{if } 1 \leq x < 2 \\
+1 & \text{if } x \geq 2 
+\end{cases}
+\]
+\end{document}
